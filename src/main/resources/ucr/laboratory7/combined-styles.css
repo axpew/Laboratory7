@@ -1,5 +1,7 @@
 /* Estilos finales que preservan el gradiente radial específico del menú */
 
+/* ============ ESTILOS GENERALES ============ */
+
 /* Estilo general de botones */
 .button {
     -fx-font-family: "Arial";
@@ -18,7 +20,6 @@ VBox > .button {
 }
 
 /* No añadimos ningún estilo al textFill para preservar el gradiente radial original */
-
 VBox > .button:hover {
     -fx-background-color: rgba(255, 255, 255, 0.1) !important;
     -fx-scale-y: 1.02 !important;
@@ -51,7 +52,7 @@ AnchorPane Pane .button:pressed {
     -fx-scale-x: 0.95;
 }
 
-/* Estilos para ComboBox */
+/* ============ ESTILOS PARA COMBOBOX ============ */
 .combo-box {
     -fx-background-color: linear-gradient(#384463, #343336);
     -fx-background-radius: 4;
@@ -91,7 +92,7 @@ AnchorPane Pane .button:pressed {
     -fx-text-fill: white;
 }
 
-/* Estilos para TextField */
+/* ============ ESTILOS PARA TEXTFIELD ============ */
 .text-field {
     -fx-background-color: #f8f8f8;
     -fx-border-color: #8f99b5;
@@ -106,7 +107,7 @@ AnchorPane Pane .button:pressed {
     -fx-effect: dropshadow(three-pass-box, rgba(82, 96, 114, 0.4), 3, 0.0, 0, 0);
 }
 
-/* Estilos para TextArea */
+/* ============ ESTILOS PARA TEXTAREA ============ */
 .text-area {
     -fx-background-color: #f8f8f8;
     -fx-border-color: #8f99b5;
@@ -127,43 +128,145 @@ AnchorPane Pane .button:pressed {
     -fx-border-color: #526072;
 }
 
-
-/* Estilo para el TableView */
-
-
+/* ============ ESTILOS MEJORADOS PARA TABLEVIEW ============ */
+/* Estilo general para TableView */
 .table-view {
-    -fx-background-color: #f4f4f4;
-    -fx-border-color: #333;
+    -fx-background-color: white;
+    -fx-border-color: #384463;
     -fx-border-width: 1px;
-    -fx-padding: 10px;
+    -fx-border-radius: 6px;
+    -fx-background-radius: 6px;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 8, 0.0, 0, 2);
+    -fx-padding: 0px;
 }
 
+/* Estilo para la cabecera de la tabla */
+.table-view .column-header-background {
+    -fx-background-color: linear-gradient(to bottom, #4a5d88 0%, #394a6e 100%);
+    -fx-background-radius: 5px 5px 0 0;
+    -fx-padding: 0 0 5px 0;
+}
+
+.table-view .column-header {
+    -fx-background-color: transparent;
+    -fx-border-color: rgba(255,255,255,0.2);
+    -fx-border-width: 0 1px 0 0;
+    -fx-padding: 8px 5px;
+}
+
+.table-view .column-header:last-visible {
+    -fx-border-width: 0;
+}
 
 .table-view .column-header .label {
-    -fx-background-color: #394a6e;
     -fx-text-fill: white;
     -fx-font-weight: bold;
-    -fx-font-family: "Serif";
+    -fx-font-family: "Arial";
+    -fx-font-size: 13px;
+    -fx-alignment: CENTER;
+    -fx-padding: 5px;
 }
 
-
-.table-view .table-row-cell {
-    -fx-background-color: #ffffff;
-    -fx-border-color: #ddd;
-}
-
-
-.table-view .table-row-cell:focused {
-    -fx-background-color: #2196F3;
-    -fx-text-fill: white;
-}
-
-
+/* Estilo para las celdas */
 .table-view .table-cell {
-    -fx-padding: 8px;
-    -fx-border-color: #ddd;
+    -fx-padding: 10px 15px;
+    -fx-alignment: CENTER;
+    -fx-font-size: 13px;
+    -fx-font-family: "Arial";
+    -fx-border-color: transparent transparent #f0f0f0 transparent;
+    -fx-border-width: 0 0 1px 0;
 }
 
-.table-view .table-cell:hover {
-    -fx-background-color: #e0e0e0;
+/* Estilo para filas alternas */
+.table-view .table-row-cell:odd {
+    -fx-background-color: #f8f9fc;
+}
+
+.table-view .table-row-cell:even {
+    -fx-background-color: white;
+}
+
+/* Eliminar borde de filas vacías */
+.table-view .table-row-cell:empty {
+    -fx-background-color: white;
+}
+
+.table-view .table-row-cell:empty .table-cell {
+    -fx-border-width: 0;
+}
+
+/* Estilo para cuando el mouse está sobre una fila */
+.table-view .table-row-cell:hover {
+    -fx-background-color: #e3f2fd;
+    -fx-cursor: hand;
+}
+
+.table-view .table-row-cell:hover .table-cell {
+    -fx-text-fill: #384463;
+}
+
+/* Estilo para una fila seleccionada */
+.table-view .table-row-cell:selected {
+    -fx-background-color: #4a5d88;
+}
+
+.table-view .table-row-cell:selected .table-cell {
+    -fx-text-fill: white;
+    -fx-border-color: transparent;
+}
+
+/* Eliminar borde exterior al seleccionar la tabla */
+.table-view:focused {
+    -fx-background-color: white;
+    -fx-border-color: #384463;
+}
+
+/* Ajustes para el scroll */
+.table-view .scroll-bar:vertical,
+.table-view .scroll-bar:horizontal {
+    -fx-background-color: transparent;
+}
+
+.table-view .scroll-bar:vertical .track,
+.table-view .scroll-bar:horizontal .track {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 4px;
+}
+
+.table-view .scroll-bar:vertical .thumb,
+.table-view .scroll-bar:horizontal .thumb {
+    -fx-background-color: #a0a9c0;
+    -fx-background-radius: 5px;
+    -fx-background-insets: 2, 0, 0;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.1), 4, 0.0, 0, 1);
+}
+
+.table-view .scroll-bar:vertical .thumb:hover,
+.table-view .scroll-bar:horizontal .thumb:hover {
+    -fx-background-color: #7d8bb1;
+}
+
+.table-view .increment-button,
+.table-view .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-padding: 3px;
+}
+
+.table-view .increment-arrow,
+.table-view .decrement-arrow {
+    -fx-shape: " ";
+    -fx-padding: 0;
+}
+
+/* Estilo adicional para esquinas del scroll */
+.table-view .corner {
+    -fx-background-color: transparent;
+}
+
+/* Fondo de placeholder cuando la tabla está vacía */
+.table-view .placeholder .label {
+    -fx-text-fill: #7d8bb1;
+    -fx-font-style: italic;
 }

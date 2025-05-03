@@ -35,7 +35,7 @@ public class HelloController {
     }
 
     @FXML
-    public void arithmeticView(ActionEvent actionEvent) {
+    public void priorityQueueView(ActionEvent actionEvent) {
 
         try {
             load("priority-view.fxml");
@@ -46,7 +46,7 @@ public class HelloController {
     }
 
     @FXML
-    public void baseConvertView(ActionEvent actionEvent) {
+    public void queueToStackView(ActionEvent actionEvent) {
         try {
             load("to-stack-view.fxml");
         } catch (IOException e) {
